@@ -1,16 +1,14 @@
-﻿using e_commerce.Server.Models;
+﻿using e_commerce.Server.DTOs;
+using e_commerce.Server.Models;
 
 namespace e_commerce.Server.Services.Interfaces
 {
-    public interface IProductService
+    public interface IProductService: IGenericService<ProductDTO>
     {
 
-        Task<IEnumerable<Product>> GetAllProductsAsync();
-        Task<Product> GetProductByIdAsync(int productId);
-        Task AddProductAsync(Product product);
-        Task UpdateProductAsync(Product product);
-        Task DeleteProductAsync(int productId);
+        Task<IEnumerable<ProductDTO>> GetAllProductsAsync();
+        Task<ProductDTO> GetProductByIdAsync(int productId);
 
-        Task<bool> ProductExists(int productId);
+      
     }
 }

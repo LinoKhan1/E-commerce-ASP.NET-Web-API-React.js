@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace e_commerce.Server.Repositories
 {
-    public class CategoryRepository: RepositoryBase, ICategoryRepository
+    public class CategoryRepository: RepositoryBase<Category>, ICategoryRepository
     {
 
         private readonly ApplicationDbContext _context;
@@ -26,46 +26,15 @@ namespace e_commerce.Server.Repositories
             return await _context.Categories.FindAsync(categoryId);
         }
 
-        public async Task AddCategoryAsync(Category category)
-        {
-            if (category == null)
-            {
-                throw new ArgumentNullException(nameof(category));
-            }
-
-            _context.Entry(category).State = EntityState.Modified;
-            await _context.SaveChangesAsync();
-        }
-        public async Task UpdateCategoryAsync(Category category)
-        {
-            if (category == null)
-            {
-
-                throw new ArgumentNullException(nameof(category));
-            }
-            _context.Entry(category).State = EntityState.Modified;
-            await _context.SaveChangesAsync();
-
-        }
+      
 
 
-        public async Task DeleteCategoryAsync(int id)
-        {
-            var categoryToDelete = await _context.Categories.FindAsync(id);
-            if (categoryToDelete != null)
-            {
-
-                _context.Categories.Remove(categoryToDelete);
-                await _context.SaveChangesAsync();
-            }
-
-        }
-
-
-        public async Task<bool> CategoryExists(int id)
+        /*public async Task<bool> CategoryExists(int id)
 
         {
             return await _context.Categories.AnyAsync(e => e.CategoryId == id);
         }
+
+        */
     }
 }

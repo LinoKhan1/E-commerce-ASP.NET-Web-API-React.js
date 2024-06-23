@@ -2,16 +2,12 @@
 
 namespace e_commerce.Server.Repositories.Interfaces
 {
-    public interface ICategoryRepository
+    public interface ICategoryRepository : IGenericRepository<Category>
     {
 
         Task<IEnumerable<Category>> GetAllCategoriesAsync();
-
         Task<Category> GetCategoryByIdAsync(int categoeyId);
-        Task AddCategoryAsync (Category category);
-        Task UpdateCategoryAsync (Category category);
-        Task DeleteCategoryAsync(int categoryId);
-        Task<bool> CategoryExists(int categoryId);  
+       
     }
 
 

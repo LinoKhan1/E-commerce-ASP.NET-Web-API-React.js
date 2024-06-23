@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace e_commerce.Server.Repositories
 {
-    public class ProductRepository: RepositoryBase, IProductRepository
+    public class ProductRepository: RepositoryBase<Product>, IProductRepository 
     {
 
         private readonly ApplicationDbContext _context;
@@ -26,28 +26,8 @@ namespace e_commerce.Server.Repositories
         {
             return await _context.Products.Include(p => p.Category).FirstOrDefaultAsync(p => p.ProductId == id);
         }
-        public async Task AddProductAsync(Product product)
-        {
-            if (product == null)
-            {
-                throw new ArgumentNullException(nameof(product));
-            }
-            _context.Products.Add(product);
-            await _context.SaveChangesAsync();  
-        }
 
-        public async Task UpdateProductAsync(Product product)
-        {
-            if (product == null)
-            {
-                throw new ArgumentNullException(nameof(product));
-            }
-
-            _context.Entry(product).State = EntityState.Modified;
-            await _context.SaveChangesAsync();
-        }
-
-        public async Task DeleteProductAsync(int id)
+       /* public async Task DeleteProductAsync(int id)
         {
             var productToDelete = await _context.Products.FindAsync(id);
             if (productToDelete != null)
@@ -57,13 +37,15 @@ namespace e_commerce.Server.Repositories
                 await _context.SaveChangesAsync();
             }
 
-        }
+        }*/
+       
 
-
-        public async Task<bool> ProductExists(int id)
+       /* public async Task<bool> ProductExists(int id)
 
         {
             return await _context.Products.AnyAsync(e => e.ProductId == id);
         }
+
+        */
     }
 }

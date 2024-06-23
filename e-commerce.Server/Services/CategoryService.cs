@@ -1,4 +1,6 @@
-﻿using e_commerce.Server.Models;
+﻿using AutoMapper;
+using e_commerce.Server.DTOs;
+using e_commerce.Server.Models;
 using e_commerce.Server.Repositories;
 using e_commerce.Server.Repositories.Interfaces;
 using e_commerce.Server.Services.Interfaces;
@@ -6,56 +8,35 @@ using e_commerce.Server.uniOfWork;
 
 namespace e_commerce.Server.Services
 {
-    public class CategoryService: ICategoryService
+    public class CategoryService: ServiceBase<Category, CategoryDTO>, ICategoryService   
     {
-        private readonly ICategoryRepository _categoryRepository;
-        private readonly IUnitOfWork _unitOfWork;
+        
 
-        public CategoryService(ICategoryRepository categoryRepository, IUnitOfWork unitOfWork)
+        private readonly ICategoryRepository _categoryRepository;
+        private readonly IMapper _mapper;
+        public CategoryService(ICategoryRepository categoryRepository, IUnitOfWork unitOfWork, IMapper mapper) : base(categoryRepository, unitOfWork, mapper    )
         {
             _categoryRepository = categoryRepository;
-            _unitOfWork = unitOfWork;
+            _mapper = mapper;   
         }
 
-        public async Task<IEnumerable<Category>> GetAllCategoriesAsync()
+
+        public async Task<IEnumerable<CategoryDTO>> GetAllCategoriesAsync()
         {
-            return await _categoryRepository.GetAllCategoriesAsync();
+            var categories = await _categoryRepository.GetAllCategoriesAsync(); 
+            return _mapper.Map<IEnumerable<CategoryDTO>>(categories);               
         }
 
-        public async Task<Category> GetCategoryByIdAsync(int categoryId)
+        public async Task<CategoryDTO> GetCategoryByIdAsync(int categoryId)
         {
-            return await _categoryRepository.GetCategoryByIdAsync(categoryId);
-        }
-
-        public async Task AddCategoryAsync(Category category)
-        {
-            await _categoryRepository.AddCategoryAsync(category);
-            await _unitOfWork.CompleteAsync();
-        }
-
-        public async Task UpdateCategoryAsync(Category category)
-        {
-            _categoryRepository.UpdateCategoryAsync(category);
-            await _unitOfWork.CompleteAsync();
-        }
-
-        public async Task DeleteCategoryAsync(int categoryId)
-        {
-
             var category = await _categoryRepository.GetCategoryByIdAsync(categoryId);
-            if (category != null)
-            {
-                _categoryRepository.DeleteCategoryAsync(category.CategoryId);
-                await _unitOfWork.CompleteAsync();
-            }
-
+            return _mapper.Map<CategoryDTO>(category);
         }
 
-        public async Task<bool> CategoryExists(int id)
+        protected override async Task<Category> GetByIdAsync(int id)
         {
-            return await _categoryRepository.CategoryExists(id);
+            return await _categoryRepository.GetCategoryByIdAsync(id);
         }
-
 
     }
 }

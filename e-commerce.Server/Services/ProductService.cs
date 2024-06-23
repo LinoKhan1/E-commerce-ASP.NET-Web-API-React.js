@@ -1,4 +1,6 @@
-﻿using e_commerce.Server.Models;
+﻿using AutoMapper;
+using e_commerce.Server.DTOs;
+using e_commerce.Server.Models;
 using e_commerce.Server.Repositories.Interfaces;
 using e_commerce.Server.Services.Interfaces;
 using e_commerce.Server.uniOfWork;
@@ -7,57 +9,46 @@ using Microsoft.AspNetCore.Mvc.Infrastructure;
 
 namespace e_commerce.Server.Services
 {
-    public class ProductService: IProductService
+    public class ProductService: ServiceBase<Product, ProductDTO>, IProductService
     {
 
+      
         private readonly IProductRepository _productRepository;
-        private readonly IUnitOfWork _unitOfWork;
+        private readonly IMapper _mapper;
 
-        public ProductService(IProductRepository productRepository, IUnitOfWork unitOfWork)
+
+        public ProductService(IProductRepository productRepository, IUnitOfWork unitOfWork, IMapper mapper) : base (productRepository, unitOfWork, mapper)
         {
             _productRepository = productRepository;
-            _unitOfWork = unitOfWork;   
+            _mapper = mapper;
+
+        }
+         public async Task<IEnumerable<ProductDTO>> GetAllProductsAsync()
+        {
+            var products = await _productRepository.GetAllProductsAsync();
+            return _mapper.Map<IEnumerable<ProductDTO>>(products);
         }
 
-        public async Task<IEnumerable<Product>> GetAllProductsAsync()
+        public async Task<ProductDTO> GetProductByIdAsync(int productId)
         {
-            return await _productRepository.GetAllProductsAsync();
-        }
-
-        public async Task<Product> GetProductByIdAsync(int productId)
-        {
-            return await _productRepository.GetProductByIdAsync(productId); 
-        }
-
-        public async Task AddProductAsync(Product product)
-        {
-            await _productRepository.AddProductAsync(product);
-            await _unitOfWork.CompleteAsync();
-        }
-
-        public async Task UpdateProductAsync(Product product)
-        {
-            _productRepository.UpdateProductAsync(product);
-            await _unitOfWork.CompleteAsync();
-        }
-
-        public async Task DeleteProductAsync(int productId)
-        {
-
             var product = await _productRepository.GetProductByIdAsync(productId);
-            if (product != null)
-            {
-                _productRepository.DeleteProductAsync(product.ProductId);
-                await _unitOfWork.CompleteAsync();
-            }
-
+            return _mapper.Map<ProductDTO>(product);
+                
         }
 
-        public async Task<bool> ProductExists(int id)
+        protected override async Task<Product> GetByIdAsync(int id)
+        {
+            return await _productRepository.GetProductByIdAsync(id);
+        }
+
+           
+      
+
+        /*public async Task<bool> ProductExists(int id)
         {
             return await _productRepository.ProductExists(id);
         }
 
-
+        */
     }
 }

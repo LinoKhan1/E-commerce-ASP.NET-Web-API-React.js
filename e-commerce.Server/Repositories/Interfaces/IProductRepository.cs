@@ -2,16 +2,13 @@
 
 namespace e_commerce.Server.Repositories.Interfaces
 {
-    public interface IProductRepository
+    public interface IProductRepository : IGenericRepository<Product>
     {
-
+      
         Task<IEnumerable<Product>> GetAllProductsAsync();
         Task<Product> GetProductByIdAsync(int productId);
-        Task AddProductAsync (Product product);
-        Task UpdateProductAsync(Product product);
-        Task DeleteProductAsync(int productId);
 
-        Task<bool> ProductExists(int productId);
+        //Task DeleteProductAsync(int productId); 
 
     }
 }
