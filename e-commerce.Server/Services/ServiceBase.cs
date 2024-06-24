@@ -5,7 +5,7 @@ using e_commerce.Server.uniOfWork;
 
 namespace e_commerce.Server.Services
 {
-    public abstract class ServiceBase<TEntity, TDto> : IGenericService<TDto> where TEntity : class
+    public abstract class ServiceBase<TEntity, TDto> : IGenericService<TDto> where TEntity : class 
     {
         private readonly IGenericRepository<TEntity> _repository;
         private readonly IUnitOfWork _unitOfWork;
@@ -37,25 +37,18 @@ namespace e_commerce.Server.Services
         public async Task DeleteAsync(int id)
         {
             var entity = await GetByIdAsync(id);
-            if (entity == null)
+            if (entity != null)
             {
-                _repository.DeleteAsync(id);
-                await _unitOfWork.CompleteAsync();
+                await _repository.DeleteAsync(id); // Ensure you await the deletion
+                await _unitOfWork.CompleteAsync(); // Save changes
+            }
+            else
+            {
+                throw new ArgumentException($"Entity with ID {id} not found.");
             }
 
         }
-
         protected abstract Task<TEntity> GetByIdAsync(int id);
-       
-
-       /* public async Task<bool> EntityExists(int id)
-        {
-            return await _repository.EntityExists(id);
-        }*/
-
-    
-    
-
 
     }
     

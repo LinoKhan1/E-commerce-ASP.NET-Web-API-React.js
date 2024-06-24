@@ -5,12 +5,21 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace e_commerce.Server.Controllers
 {
+    /// <summary>
+    /// API Controller for managing categories.
+    /// </summary>
     [Route("api/[controller]")]
     public class CategoryController : ControllerBase
     {
 
         private readonly ICategoryService _categoryService;
 
+
+
+        /// <summary>
+        /// Constructor for CategoryController.
+        /// </summary>
+        /// <param name="categoryService">The category service instance.</param>
         public CategoryController(ICategoryService categoryService)
         {
 
@@ -18,6 +27,10 @@ namespace e_commerce.Server.Controllers
 
         }
 
+        /// <summary>
+        /// Retrieves all categories.
+        /// </summary>
+        /// <returns>A list of all categories.</returns>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<CategoryDTO>>> GetCategories()
         {
@@ -25,6 +38,11 @@ namespace e_commerce.Server.Controllers
             return Ok(categories);
         }
 
+        /// <summary>
+        /// Retrieves a category by its ID.
+        /// </summary>
+        /// <param name="id">The ID of the category.</param>
+        /// <returns>The category with the specified ID.</returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<CategoryDTO>> GetCategory(int id)
         {
@@ -36,6 +54,12 @@ namespace e_commerce.Server.Controllers
             return Ok(category);
 
         }
+
+        /// <summary>
+        /// Adds a new category.
+        /// </summary>
+        /// <param name="categoryDTO">The category to add.</param>
+        /// <returns>The newly created category.</returns>
         [HttpPost]
         public async Task<ActionResult<CategoryDTO>> PostCategory(CategoryDTO categoryDTO)
         {
@@ -43,6 +67,13 @@ namespace e_commerce.Server.Controllers
             return CreatedAtAction(nameof(GetCategory), new { id = categoryDTO.CategoryId }, categoryDTO);
         }
 
+
+        /// <summary>
+        /// Updates an existing category.
+        /// </summary>
+        /// <param name="id">The ID of the category to update.</param>
+        /// <param name="categoryDTO">The updated category information.</param>
+        /// <returns>No content.</returns>
         [HttpPut("{id}")]
         public async Task<IActionResult> PutCategory(int id, CategoryDTO categoryDTO)
         {
@@ -54,6 +85,12 @@ namespace e_commerce.Server.Controllers
             return NoContent();
         }
 
+
+        /// <summary>
+        /// Deletes a category by its ID.
+        /// </summary>
+        /// <param name="id">The ID of the category to delete.</param>
+        /// <returns>No content.</returns>
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCategory(int id)
         {

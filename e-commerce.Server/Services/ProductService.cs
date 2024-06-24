@@ -40,15 +40,5 @@ namespace e_commerce.Server.Services
         {
             return await _productRepository.GetProductByIdAsync(id);
         }
-
-           
-      
-
-        /*public async Task<bool> ProductExists(int id)
-        {
-            return await _productRepository.ProductExists(id);
-        }
-
-        */
     }
 }

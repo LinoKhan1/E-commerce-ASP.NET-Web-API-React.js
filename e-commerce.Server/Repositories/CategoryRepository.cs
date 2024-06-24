@@ -25,16 +25,5 @@ namespace e_commerce.Server.Repositories
         {
             return await _context.Categories.FindAsync(categoryId);
         }
-
-      
-
-
-        /*public async Task<bool> CategoryExists(int id)
-
-        {
-            return await _context.Categories.AnyAsync(e => e.CategoryId == id);
-        }
-
-        */
     }
 }

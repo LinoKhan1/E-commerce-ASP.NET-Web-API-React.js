@@ -7,8 +7,5 @@ namespace e_commerce.Server.Repositories.Interfaces
       
         Task<IEnumerable<Product>> GetAllProductsAsync();
         Task<Product> GetProductByIdAsync(int productId);
-
-        //Task DeleteProductAsync(int productId); 
-
     }
 }

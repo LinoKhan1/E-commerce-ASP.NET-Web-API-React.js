@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using e_commerce.Server.DTOs;
 using e_commerce.Server.Models;
-using e_commerce.Server.Repositories;
 using e_commerce.Server.Repositories.Interfaces;
 using e_commerce.Server.Services.Interfaces;
 using e_commerce.Server.uniOfWork;

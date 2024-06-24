@@ -15,16 +15,18 @@ namespace e_commerce.Server.Repositories
         _context = context ?? throw new ArgumentNullException(nameof(context)); 
         }
 
-     
-
         public async Task AddAsync(T entity)
         {
-            if (entity == null)
+            if(entity != null)
+            {
+                await _context.Set<T>().AddAsync(entity);
+                await _context.SaveChangesAsync();
+            }
+            else
             {
                 throw new ArgumentNullException(nameof(entity));
+
             }
-            _context.Set<T>().AddAsync(entity);
-            await _context.SaveChangesAsync();
 
         }
         public async Task UpdateAsync(T entity)
@@ -47,10 +49,5 @@ namespace e_commerce.Server.Repositories
                 await _context.SaveChangesAsync();
             }
         }
-
-       /* public async Task<bool> EntityExists(int id)
-        {
-            return true;
-        }*/
     }
 }

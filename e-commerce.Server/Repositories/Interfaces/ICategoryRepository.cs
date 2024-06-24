@@ -6,7 +6,7 @@ namespace e_commerce.Server.Repositories.Interfaces
     {
 
         Task<IEnumerable<Category>> GetAllCategoriesAsync();
-        Task<Category> GetCategoryByIdAsync(int categoeyId);
+        Task<Category> GetCategoryByIdAsync(int categoryId);
        
     }
 

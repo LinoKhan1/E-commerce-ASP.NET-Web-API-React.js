@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "8PhDrz4ay76iKLK3jxhGBUN3PWqSEZlPMFnM6KvONME=",
+  "Hash": "h/lR/STU0V/rvlbeSof7IFkotA++iAjA9j1cgL7fqIY=",
   "Source": "e-commerce.Server",
   "BasePath": "_content/e-commerce.Server",
   "Mode": "Default",
@@ -11,10 +11,10 @@
       "Version": 2,
       "Source": "e-commerce.client",
       "GetPublishAssetsTargets": "GetCurrentProjectPublishStaticWebAssetItems",
-      "AdditionalPublishProperties": "",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
       "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained",
       "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
-      "AdditionalBuildProperties": "",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
       "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained"
     }
   ],

@@ -26,26 +26,5 @@ namespace e_commerce.Server.Repositories
         {
             return await _context.Products.Include(p => p.Category).FirstOrDefaultAsync(p => p.ProductId == id);
         }
-
-       /* public async Task DeleteProductAsync(int id)
-        {
-            var productToDelete = await _context.Products.FindAsync(id);
-            if (productToDelete != null)
-            {
-
-                _context.Products.Remove(productToDelete);
-                await _context.SaveChangesAsync();
-            }
-
-        }*/
-       
-
-       /* public async Task<bool> ProductExists(int id)
-
-        {
-            return await _context.Products.AnyAsync(e => e.ProductId == id);
-        }
-
-        */
     }
 }
