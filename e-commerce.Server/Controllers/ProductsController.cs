@@ -1,6 +1,7 @@
 ﻿using e_commerce.Server.DTOs;
 using e_commerce.Server.Models;
 using e_commerce.Server.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Identity.Client;
 
@@ -10,6 +11,8 @@ namespace e_commerce.Server.Controllers
     /// API Controller for managing products.
     /// </summary>
     [Route("api/[controller]")]
+    [ApiController]
+    [Authorize]
     public class ProductsController : ControllerBase
     {
        

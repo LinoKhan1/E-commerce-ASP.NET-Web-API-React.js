@@ -1,6 +1,7 @@
 ﻿using e_commerce.Server.DTOs;
 using e_commerce.Server.Models;
 using e_commerce.Server.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace e_commerce.Server.Controllers
@@ -9,6 +10,8 @@ namespace e_commerce.Server.Controllers
     /// API Controller for managing categories.
     /// </summary>
     [Route("api/[controller]")]
+    [ApiController]
+    [Authorize]
     public class CategoryController : ControllerBase
     {
 
