@@ -80,6 +80,58 @@ This is a full-stack e-commerce application built with React.js for the frontend
 - Secure Payment Handling with Encryption
 - Role-Based Access Control (RBAC)
 
+## Project Structure
+``` sh
+e-commerce/
+│
+├── e-commerce.Server/
+│   ├── Controllers/
+│   ├── Data/
+│   ├── DTOs/
+│   ├── Models/
+│   ├── Repositories/
+│   ├── Services/
+│   ├── unitOfWork/
+│   ├── appsettings.json
+│   ├── Program.cs
+│   ├── Startup.cs
+│   ├── Dockerfile
+│   ├── e-commerce.Server.csproj
+│   └── ...
+│
+├── e-commerce.Client/
+│   ├── public/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── services/
+│   │   ├── store/
+│   │   ├── App.js
+│   │   ├── index.js
+│   │   ├── index.css
+│   │   ├── setupTests.js
+│   │   └── ...
+│   ├── package.json
+│   ├── package-lock.json
+│   ├── .env
+│   ├── .env.example
+│   ├── Dockerfile
+│   ├── .dockerignore
+│   └── ...
+│
+└── e-commerce.Tests/
+    ├── Services/
+    ├── Controllers/
+    ├── Integration/
+    ├── Unit/
+    ├── e-commerce.Tests.csproj
+    └── ...
+│
+└── README.md
+
+
+```
+
 ## Getting Started
 1. **Clone the repository**: `git clone https://github.com/your/repository.git`
 2. **Navigate to the frontend and backend directories**:
