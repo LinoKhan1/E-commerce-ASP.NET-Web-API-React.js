@@ -1,15 +1,16 @@
 # E-Commerce Application
 
-This is a full-stack e-commerce application built with React.js for the frontend and ASP.NET Core for the backend. It includes user management, product management, shopping cart functionality, checkout process with payment integration, order management, inventory management, notifications, content management, analytics, and security features.
+This is a full-stack e-commerce application built with React.js for the frontend and ASP.NET Core Web API for the backend. It includes user management, product management, shopping cart functionality, checkout process with payment integration, order management, inventory management, notifications, content management, and security features.
 
 ## Technical Stack
 
 ### Frontend
-- **Framework**: React.js
+- **Framework**: React.js, Vite
 - **State Management**: Redux or Context API
 - **Routing**: React Router
 - **Form Handling**: Formik with Yup for validation
-- **Styling**: CSS Modules, SASS, or Styled Components
+- **Testing**: Jest, Supertest
+- **Styling**: CSS Modules, SASS, Bootstrap
 - **API Requests**: Axios or Fetch API
 
 ### Backend
@@ -19,13 +20,14 @@ This is a full-stack e-commerce application built with React.js for the frontend
 - **Authentication**: ASP.NET Core Identity, JWT Tokens
 - **Data Access**: Entity Framework Core
 - **Validation**: FluentValidation
+- **Testing**: Xunit, Moq
 
 ### Database
-- **Primary Database**: Microsoft SQL Server or PostgreSQL
+- **Primary Database**: Microsoft SQL Server
 - **ORM**: Entity Framework Core
 
 ### Payment Gateway Integration
-- **Providers**: Stripe, PayPal
+- **Providers**: PayPal
 - **Implementation**: Using official SDKs and APIs for payments
 
 ### DevOps and Deployment
@@ -55,7 +57,7 @@ This is a full-stack e-commerce application built with React.js for the frontend
 - Persistent Cart for Logged-in Users
 
 ### 4. Checkout Process
-- Payment Integration with Stripe or PayPal SDKs
+- Payment Integration with PayPal SDKs
 - Order Summary and Finalization
 
 ### 5. Order Management
@@ -74,19 +76,15 @@ This is a full-stack e-commerce application built with React.js for the frontend
 - CMS for Static Pages and Blog Posts
 - Admin CRUD Operations for Content
 
-### 9. Analytics and Reporting
-- Sales Reports, Revenue by Product, Sales Trends
-- Customer Reports on Behavior and Demographics
-
-### 10. Security
+### 9. Security
 - Secure Payment Handling with Encryption
 - Role-Based Access Control (RBAC)
 
 ## Getting Started
 1. **Clone the repository**: `git clone https://github.com/your/repository.git`
 2. **Navigate to the frontend and backend directories**:
-   - Frontend: `cd frontend`
-   - Backend: `cd backend`
+   - Frontend: `cd e-commerce.client`
+   - Backend: `cd e-commerce.Server`
 3. **Install dependencies**:
    - Frontend: `npm install`
    - Backend: Dependencies are managed via NuGet packages for .NET Core
@@ -94,7 +92,7 @@ This is a full-stack e-commerce application built with React.js for the frontend
    - Configure connection strings in `appsettings.json` for the backend
    - Run migrations to create the database schema
 5. **Start the development servers**:
-   - Frontend: `npm start`
+   - Frontend: `npm run dev`
    - Backend: Run from Visual Studio or use `dotnet run` command
 6. **Open your browser** and navigate to `http://localhost:3000` for the frontend.
 
