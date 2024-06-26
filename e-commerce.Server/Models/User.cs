@@ -2,7 +2,7 @@
 
 namespace e_commerce.Server.Models
 {
-    public class ApplicationUser : IdentityUser
+    public class User : IdentityUser
     {
 
     }

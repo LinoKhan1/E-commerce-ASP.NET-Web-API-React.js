@@ -15555,6 +15555,7 @@
       "AutoMapper >= 13.0.1",
       "Microsoft.AspNetCore.Mvc.Testing >= 8.0.6",
       "Microsoft.EntityFrameworkCore.InMemory >= 8.0.6",
+      "Microsoft.Extensions.Configuration >= 8.0.0",
       "Microsoft.NET.Test.Sdk >= 17.8.0",
       "Moq >= 4.20.70",
       "coverlet.collector >= 6.0.0",
@@ -15623,6 +15624,10 @@
           "Microsoft.EntityFrameworkCore.InMemory": {
             "target": "Package",
             "version": "[8.0.6, )"
+          },
+          "Microsoft.Extensions.Configuration": {
+            "target": "Package",
+            "version": "[8.0.0, )"
           },
           "Microsoft.NET.Test.Sdk": {
             "target": "Package",

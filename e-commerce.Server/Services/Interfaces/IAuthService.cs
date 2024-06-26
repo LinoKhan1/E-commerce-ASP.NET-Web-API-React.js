@@ -6,8 +6,7 @@ namespace e_commerce.Server.Services.Interfaces
 {
     public interface IAuthService
     {
-        Task<IdentityResult> RegisterUserAsync(RegisterDTO registerDTO);
-        Task<string> LoginUserAsync(LoginDTO loginDTO);
-        Task<ApplicationUser> FindByEmailAsync(string email);
+        Task<IdentityResult> RegisterUserAsync(RegisterDTO registerDto);
+        Task<string> LoginUserAsync(LoginDTO loginDto);
     }
 }

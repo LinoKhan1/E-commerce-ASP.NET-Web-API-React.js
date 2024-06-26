@@ -1,11 +1,12 @@
 ﻿using e_commerce.Server.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.General;
 
 namespace e_commerce.Server.Services.Interfaces
 {
     public interface IJwtService
     {
-        Task<string> GenerateJwtToken(ApplicationUser user);
-        Task<bool> VerifyJwtToken(string token);
+        string GenerateJwtToken(IdentityUser user);
+        bool VerifyJwtToken(string token);
     }
 }

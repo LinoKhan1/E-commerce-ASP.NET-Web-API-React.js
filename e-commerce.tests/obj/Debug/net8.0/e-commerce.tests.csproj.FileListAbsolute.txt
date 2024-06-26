@@ -353,8 +353,6 @@ C:\Users\User\source\repos\e-commerce\e-commerce.tests\bin\Debug\net8.0\refs\Mic
 C:\Users\User\source\repos\e-commerce\e-commerce.tests\bin\Debug\net8.0\refs\Microsoft.AspNetCore.Connections.Abstractions.dll
 C:\Users\User\source\repos\e-commerce\e-commerce.tests\bin\Debug\net8.0\refs\Microsoft.AspNetCore.CookiePolicy.dll
 C:\Users\User\source\repos\e-commerce\e-commerce.tests\bin\Debug\net8.0\refs\Microsoft.AspNetCore.Cors.dll
-C:\Users\User\source\repos\e-commerce\e-commerce.tests\bin\Debug\net8.0\refs\Microsoft.AspNetCore.Cryptography.Internal.dll
-C:\Users\User\source\repos\e-commerce\e-commerce.tests\bin\Debug\net8.0\refs\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 C:\Users\User\source\repos\e-commerce\e-commerce.tests\bin\Debug\net8.0\refs\Microsoft.AspNetCore.DataProtection.Abstractions.dll
 C:\Users\User\source\repos\e-commerce\e-commerce.tests\bin\Debug\net8.0\refs\Microsoft.AspNetCore.DataProtection.dll
 C:\Users\User\source\repos\e-commerce\e-commerce.tests\bin\Debug\net8.0\refs\Microsoft.AspNetCore.DataProtection.Extensions.dll
@@ -450,8 +448,6 @@ C:\Users\User\source\repos\e-commerce\e-commerce.tests\bin\Debug\net8.0\refs\Mic
 C:\Users\User\source\repos\e-commerce\e-commerce.tests\bin\Debug\net8.0\refs\Microsoft.Extensions.Hosting.Abstractions.dll
 C:\Users\User\source\repos\e-commerce\e-commerce.tests\bin\Debug\net8.0\refs\Microsoft.Extensions.Hosting.dll
 C:\Users\User\source\repos\e-commerce\e-commerce.tests\bin\Debug\net8.0\refs\Microsoft.Extensions.Http.dll
-C:\Users\User\source\repos\e-commerce\e-commerce.tests\bin\Debug\net8.0\refs\Microsoft.Extensions.Identity.Core.dll
-C:\Users\User\source\repos\e-commerce\e-commerce.tests\bin\Debug\net8.0\refs\Microsoft.Extensions.Identity.Stores.dll
 C:\Users\User\source\repos\e-commerce\e-commerce.tests\bin\Debug\net8.0\refs\Microsoft.Extensions.Localization.Abstractions.dll
 C:\Users\User\source\repos\e-commerce\e-commerce.tests\bin\Debug\net8.0\refs\Microsoft.Extensions.Localization.dll
 C:\Users\User\source\repos\e-commerce\e-commerce.tests\bin\Debug\net8.0\refs\Microsoft.Extensions.Logging.Abstractions.dll
@@ -639,3 +635,10 @@ C:\Users\User\source\repos\e-commerce\e-commerce.tests\bin\Debug\net8.0\refs\Win
 C:\Users\User\source\repos\e-commerce\e-commerce.tests\bin\Debug\net8.0\Microsoft.AspNetCore.Mvc.Testing.dll
 C:\Users\User\source\repos\e-commerce\e-commerce.tests\bin\Debug\net8.0\Microsoft.AspNetCore.TestHost.dll
 C:\Users\User\source\repos\e-commerce\e-commerce.tests\obj\Debug\net8.0\MvcTestingAppManifest.json
+C:\Users\User\source\repos\e-commerce\e-commerce.tests\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\User\source\repos\e-commerce\e-commerce.tests\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\User\source\repos\e-commerce\e-commerce.tests\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\User\source\repos\e-commerce\e-commerce.tests\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\User\source\repos\e-commerce\e-commerce.tests\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\User\source\repos\e-commerce\e-commerce.tests\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\User\source\repos\e-commerce\e-commerce.tests\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
