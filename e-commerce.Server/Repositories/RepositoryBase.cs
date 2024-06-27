@@ -20,7 +20,6 @@ namespace e_commerce.Server.Repositories
             if(entity != null)
             {
                 await _context.Set<T>().AddAsync(entity);
-                await _context.SaveChangesAsync();
             }
             else
             {
@@ -37,7 +36,6 @@ namespace e_commerce.Server.Repositories
             }
             _context.Entry(entity).State = EntityState.Modified;
 
-            await _context.SaveChangesAsync();  
         }
 
         public async Task DeleteAsync(int id)
@@ -46,7 +44,6 @@ namespace e_commerce.Server.Repositories
             if (entityToDelete != null)
             {
                 _context.Set<T>().Remove(entityToDelete);
-                await _context.SaveChangesAsync();
             }
         }
     }

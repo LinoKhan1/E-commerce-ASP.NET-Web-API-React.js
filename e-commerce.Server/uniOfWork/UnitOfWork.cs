@@ -2,6 +2,7 @@
 using e_commerce.Server.Repositories;
 using e_commerce.Server.Repositories.Interfaces;
 using Microsoft.Identity.Client;
+using System.Drawing.Printing;
 
 namespace e_commerce.Server.uniOfWork
 {
@@ -12,6 +13,7 @@ namespace e_commerce.Server.uniOfWork
         private readonly ApplicationDbContext _context;
         private IProductRepository _productRepository;
         private ICategoryRepository _categoryRepository;
+        private ICartRepository _cartRepository;
 
         public UnitOfWork(ApplicationDbContext context)
         {
@@ -40,6 +42,20 @@ namespace e_commerce.Server.uniOfWork
                     _categoryRepository = new CategoryRepository(_context);
                 }
                 return _categoryRepository;
+            }
+        }
+
+        public ICartRepository CartRepository
+        {
+            get
+            {
+                if (_cartRepository == null)
+                {
+                    _cartRepository = new CartRepository(_context);
+                }
+
+                return _cartRepository;
+
             }
         }
 

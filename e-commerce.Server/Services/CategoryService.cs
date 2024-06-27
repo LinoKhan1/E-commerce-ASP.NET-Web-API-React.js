@@ -12,10 +12,12 @@ namespace e_commerce.Server.Services
         
 
         private readonly ICategoryRepository _categoryRepository;
+        private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
         public CategoryService(ICategoryRepository categoryRepository, IUnitOfWork unitOfWork, IMapper mapper) : base(categoryRepository, unitOfWork, mapper    )
         {
             _categoryRepository = categoryRepository;
+            _unitOfWork = unitOfWork;
             _mapper = mapper;   
         }
 
@@ -23,6 +25,7 @@ namespace e_commerce.Server.Services
         public async Task<IEnumerable<CategoryDTO>> GetAllCategoriesAsync()
         {
             var categories = await _categoryRepository.GetAllCategoriesAsync(); 
+
             return _mapper.Map<IEnumerable<CategoryDTO>>(categories);               
         }
 

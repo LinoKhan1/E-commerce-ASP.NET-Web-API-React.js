@@ -6,6 +6,8 @@ namespace e_commerce.Server.uniOfWork
     {
         IProductRepository ProductRepository { get; }
         ICategoryRepository CategoryRepository { get; }
+
+        ICartRepository CartRepository { get; }
         Task<int> CompleteAsync();
 
 
