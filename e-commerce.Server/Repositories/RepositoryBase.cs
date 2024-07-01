@@ -8,7 +8,7 @@ namespace e_commerce.Server.Repositories
     {
 
         protected readonly ApplicationDbContext _context;
-
+        
         public RepositoryBase(ApplicationDbContext context)
         {
 

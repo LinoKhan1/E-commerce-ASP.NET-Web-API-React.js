@@ -9,6 +9,7 @@ using e_commerce.Server.uniOfWork;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Identity.Client;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.General;
 using System.Text;
@@ -78,18 +79,21 @@ builder.Services.AddAuthentication(options =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+
+// Register generic repositories and services
+/*builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(RepositoryBase<>));
+builder.Services.AddScoped(typeof(IGenericService<>), typeof(ServiceBase<,>));*/
 // Add UnitOfWork, Repositories and Services
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<ICategoryService, CategoryService>(); 
 builder.Services.AddScoped<ICartRepository, CartRepository>();
-builder.Services.AddScoped<ICartService, CartService>();    
+builder.Services.AddScoped<ICartService, CartService>();
+
+
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
-// Register generic repositories and services
-builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(RepositoryBase<>));
-builder.Services.AddScoped(typeof(IGenericService<>), typeof(ServiceBase<,>));
 
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IJwtService, JwtService>();
@@ -116,3 +120,4 @@ app.MapControllers();
 app.MapFallbackToFile("/index.html");
 
 app.Run();
+public partial class Program { }

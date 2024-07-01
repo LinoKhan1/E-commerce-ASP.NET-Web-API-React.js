@@ -8,7 +8,7 @@ namespace e_commerce.Server.Repositories
     /// <summary>
     /// Provides a repository for managing cart items.
     /// </summary>
-    public class CartRepository : RepositoryBase<CartItem>, ICartRepository
+    public class CartRepository : ICartRepository
     {
         private readonly ApplicationDbContext _context;
 
@@ -16,7 +16,7 @@ namespace e_commerce.Server.Repositories
         /// Initializes a new instance of the <see cref="CartRepository"/> class.
         /// </summary>
         /// <param name="context">The application database context.</param>
-        public CartRepository(ApplicationDbContext context) : base(context)
+        public CartRepository(ApplicationDbContext context) 
         {
             _context = context ?? throw new ArgumentNullException(nameof(context));
         }
@@ -43,5 +43,27 @@ namespace e_commerce.Server.Repositories
         {
             return await _context.CartItems.FirstOrDefaultAsync(ci => ci.CartItemId == cartItemId);
         }
+
+        public async Task AddCartItemAsync(CartItem cartItem)
+        {
+            await _context.CartItems.AddAsync(cartItem);
+            
+        }
+
+        public async Task UpdateCartItemAsync(CartItem cartItem)
+        {
+            _context.Entry(cartItem).State = EntityState.Modified;  
+        }
+
+        public async Task DeleteCartItemAsync(int id)
+        {
+            var cartItem = await _context.CartItems.FindAsync(id);
+            if (cartItem != null)
+            {
+                _context.CartItems.Remove(cartItem);
+               
+            }
+        }
+
     }
 }

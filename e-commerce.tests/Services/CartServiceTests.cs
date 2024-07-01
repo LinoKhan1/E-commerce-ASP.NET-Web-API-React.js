@@ -91,7 +91,7 @@ namespace e_commerce.tests.Services
             await cartService.AddCartItemAsync(userId, addToCartDto);
 
             // Assert
-            _mockRepository.Verify(repo => repo.AddAsync(It.IsAny<CartItem>()), Times.Once());
+            _mockRepository.Verify(repo => repo.AddCartItemAsync(It.IsAny<CartItem>()), Times.Once());
             _mockUnitOfWork.Verify(uow => uow.CompleteAsync(), Times.Once);
         }
 
@@ -112,7 +112,7 @@ namespace e_commerce.tests.Services
 
             // Assert
             Assert.Equal(newQuantity, cartItem.Quantity);
-            _mockRepository.Verify(repo => repo.UpdateAsync(cartItem), Times.Once);
+            _mockRepository.Verify(repo => repo.UpdateCartItemAsync(cartItem), Times.Once);
             _mockUnitOfWork.Verify(uow => uow.CompleteAsync(), Times.Once);
         }
 
@@ -127,7 +127,7 @@ namespace e_commerce.tests.Services
             await cartService.RemoveCartItemAsync(cartItemId);
 
             // Assert
-            _mockRepository.Verify(repo => repo.DeleteAsync(cartItemId), Times.Once);
+            _mockRepository.Verify(repo => repo.DeleteCartItemAsync(cartItemId), Times.Once);
             _mockUnitOfWork.Verify(uow => uow.CompleteAsync(), Times.Once);
         }
     }

@@ -55,7 +55,7 @@ namespace e_commerce.Server.Services
                 DateAdded = DateTime.UtcNow,
             };
 
-            await _cartRepository.AddAsync(cartItem);
+            await _cartRepository.AddCartItemAsync(cartItem);
             await _unitOfWork.CompleteAsync();  
         }
 
@@ -71,7 +71,7 @@ namespace e_commerce.Server.Services
             if (cartItem != null)
             {
                 cartItem.Quantity = quantity;
-                await _cartRepository.UpdateAsync(cartItem);
+                await _cartRepository.UpdateCartItemAsync(cartItem);
                 await _unitOfWork.CompleteAsync();
 
             }
@@ -84,7 +84,7 @@ namespace e_commerce.Server.Services
         /// <returns>A task that represents the asynchronous operation.</returns>
         public async Task RemoveCartItemAsync(int id)
         {
-            await _cartRepository.DeleteAsync(id);
+            await _cartRepository.DeleteCartItemAsync(id);
             await _unitOfWork.CompleteAsync();
 
         }

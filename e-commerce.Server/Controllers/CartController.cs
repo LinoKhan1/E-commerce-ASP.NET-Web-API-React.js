@@ -34,7 +34,7 @@ namespace e_commerce.Server.Controllers
             }
             else
             {
-                return BadRequest();
+                return BadRequest("User ID not found in claims.");
             }
         }
 
