@@ -14,6 +14,7 @@ namespace e_commerce.Server.uniOfWork
         private IProductRepository _productRepository;
         private ICategoryRepository _categoryRepository;
         private ICartRepository _cartRepository;
+        private IOrderRepository _orderRepository;
 
         public UnitOfWork(ApplicationDbContext context)
         {
@@ -56,6 +57,17 @@ namespace e_commerce.Server.uniOfWork
 
                 return _cartRepository;
 
+            }
+        }
+        public IOrderRepository OrderRepository
+        {
+            get
+            {
+                if(_orderRepository == null)
+                {
+                    _orderRepository = new OrderRepository(_context);
+                }
+                return _orderRepository;    
             }
         }
 

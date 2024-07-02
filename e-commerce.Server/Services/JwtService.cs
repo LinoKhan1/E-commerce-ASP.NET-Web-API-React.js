@@ -5,8 +5,8 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using Microsoft.AspNetCore.Identity;
-using e_commerce.Server.Models;
 using e_commerce.Server.Services.Interfaces;
+using e_commerce.Server.Config;
 
 namespace e_commerce.Server.Services
 {

@@ -1,4 +1,4 @@
-﻿namespace e_commerce.Server.Models
+﻿namespace e_commerce.Server.Config
 {
     public class JwtSettings
     {

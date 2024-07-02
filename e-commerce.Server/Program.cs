@@ -1,6 +1,6 @@
+using e_commerce.Server.Config;
 using e_commerce.Server.Data;
 using e_commerce.Server.Mappings;
-using e_commerce.Server.Models;
 using e_commerce.Server.Repositories;
 using e_commerce.Server.Repositories.Interfaces;
 using e_commerce.Server.Services;
@@ -12,6 +12,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Identity.Client;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.General;
+using System.Configuration;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -81,22 +82,31 @@ builder.Services.AddSwaggerGen();
 
 
 // Register generic repositories and services
-/*builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(RepositoryBase<>));
-builder.Services.AddScoped(typeof(IGenericService<>), typeof(ServiceBase<,>));*/
-// Add UnitOfWork, Repositories and Services
+builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(RepositoryBase<>));
+builder.Services.AddScoped(typeof(IGenericService<>), typeof(ServiceBase<,>));
+
+// Register repositories
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
-builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
-builder.Services.AddScoped<ICategoryService, CategoryService>(); 
 builder.Services.AddScoped<ICartRepository, CartRepository>();
+builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+// Register services
+builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<ICartService, CartService>();
-
-
-builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
-
-
+builder.Services.AddScoped<IOrderService, OrderService>();
+builder.Services.AddScoped<IPaymentService, PayPalService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IJwtService, JwtService>();
+
+// Register Unit Of Work
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+// Confugure PayPalSettings
+//builder.Services.Configure<PayPalSettings>(Configuration.Get("PayPal"));
+
+
+
 
 
 var app = builder.Build();
